@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    
+    <style>
+        *, *::before, *::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar{
+            position: fixed;
+            width: 100%;
+            top: 0px;
+        }
+
+        body {
+            font-family: 'Anton', sans-serif;
+            background-color: #eee;
+            color: #333;
+            min-height: 100vh;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+                    justify-content: center;
+            align-content: center;
+            -webkit-box-align: center;
+                    align-items: center;
+            flex-wrap: wrap;
+        }
+
+        main{
+            min-height: 90vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100em;
+            height: 200px;
+            border-radius: 4px;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                    align-items: center;
+            margin: 5em;
+            -webkit-perspective: 1000px;
+                    perspective: 1000px;
+        }
+
+        .square {
+            width: 65em;
+            height: 10em;
+            -webkit-transform: rotateX(30deg);
+                    transform: rotateX(30deg);
+            position: absolute;
+            cursor: -webkit-grab; 
+            cursor: grab;
+        }
+        .box {
+            width: 65em;
+            height: 10em;
+            -webkit-transform: rotateX(30deg);
+                    transform: rotateX(30deg);
+            position: absolute;
+            cursor: -webkit-grab; 
+            cursor: grab;
+        }
+        
+
+        #A0 {
+            z-index: 1;
+            background-color: darkseagreen;         
+            position: absolute;
+            bottom: 0px;
+            transform: rotateX(30deg) translateY(0px) translateZ(0px);
+            -webkit-transform: rotateX(30deg) translateY(0px) translateZ(0px);
+        }
+
+        .box1{
+            background-color: steelblue;         
+            position: absolute;
+            bottom: 0px;
+            transform: rotateX(30deg) translateY(0px) translateZ(-200px);
+            -webkit-transform: rotateX(30deg) translateY(0px) translateZ(-200px);
+        }
+
+        .box2{
+            background-color: salmon;         
+            position: absolute;
+            bottom: 0px;
+            transform: rotateX(30deg) translateY(0px) translateZ(-400px);
+            -webkit-transform: rotateX(30deg) translateY(0px) translateZ(-400px);
+        }
+
+        .box3{
+            background-color: thistle;         
+            position: absolute;
+            bottom: 0px;
+            transform: rotateX(30deg) translateY(0px) translateZ(-600px);
+            -webkit-transform: rotateX(30deg) translateY(0px) translateZ(-600px);
+        }
+
+        #ts-preserve:checked ~ .container {
+        -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+        }
+
+        #ts-preserve:checked ~ .options > label.preserve {
+            background-color: greenyellow;
+        }
+
+        .table{
+            width: 100%;
+            display: flex;
+            position: absolute;
+            bottom: 0px;
+            margin: 5px;
+            left: -5px;
+        }
+
+        .displayblock{
+            margin: 5px;
+            width: 20%;
+        }
+
+        header{
+            width: 100%;
+        }
+
+        .hold{
+            border: 20px solid blue;
+        }
+
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Duplicate 2.0</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/station.ejs">Station</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/newitem.html">New Item</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main> 
+        <div class="container">
+            <div class="square" id="A0">
+                <div class="table">
+                    <input placeholder="serial number" class="form-control border-left-0 displayblock" readonly>
+                    <input placeholder="Plate size" class="form-control border-left-0 displayblock" readonly>                       
+                    <input placeholder="GCT" class="form-control border-left-0 displayblock" readonly>
+                    <input placeholder="HT" class="form-control border-left-0 displayblock" readonly>
+                </div>
+            </div>
+            <% for(var i=(records.length-1); i>=0; i--) {%>
+                <div class="box box<%=i+1%>" id="drag<%=i+1%>" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="transform_funcA2(id)" >
+                    <div class="table"    draggable="true" ondragstart="drag(event)">
+                        <input name="serialno" id="serialno" type="text" placeholder="serial number" class="form-control border-left-0 displayblock" value="<%= i+1 %>" readonly>
+                        <input name="size" type="text" id="size" placeholder="Plate size" class="form-control border-left-0 displayblock" value="<%= records[i].size %>">                       
+                        <input name="gct" id="gct" type="text" placeholder="GCT" class="form-control border-left-0 displayblock" value="<%= records[i].gct %>">
+                        <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0 displayblock" value="<%= records[i].ht %>">
+                        <button type="submit" class="btn btn-success displayblock" name="statoion2">
+                    <i class="fa fa-paper-plane"></i>
+                    Send
+                    </button>
+                    </div>
+                </div>
+            <%} %>
+        </div>
+    </main>
+    <footer class="page-footer font-small blue">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="http://beast-adamantt.herokuapp.com/beastadamant"> BEAST ADAMANT</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+<script>
+    
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("table", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var src = document.getElementById(ev.dataTransfer.getData("table"));
+        var srcParent = src.parentNode;
+        var tgt = ev.currentTarget.firstElementChild;
+
+        ev.currentTarget.replaceChild(src, tgt);
+        srcParent.appendChild(tgt);
+    }
+
+
+
+    let colors = ["darkseagreen","thistle","salmon","steelblue"];
+    for (let i = 0; i < 10; i++) {
+        let n = i * 200;
+        if (i%4==0) {
+            document.getElementsByClassName("box" + i).style.backgroundColor = colors[3];
+        } 
+        else if(i%3==0) {
+            document.getElementByClassName("box" + i).style.backgroundColor = colors[2];         
+        }
+        else if(i%2==0) {
+            document.getElementByClassName("box" + i).style.backgroundColor = colors[1];         
+        }
+        else{
+            document.getElementByClassName("box" + i).style.backgroundColor = colors[0];         
+        }
+        
+        document.getElementByClassName("box" + i).style.position = 'absolute';
+        document.getElementByClassName("box" + i).style.bottom = '0px';
+        document.getElementByClassName("box" + i).style.transform = " rotateX(30deg) translateY(0px) translateZ(" + (-n) + "px)";
+        document.getElementByClassName("box" + i).style.webkitTransform = " rotateX(30deg) translateY(0px) translateZ(" + (-n) + "px)";
+    }
+    function transform_funcA2(s) {
+        let m = s.charAt(s.length-1);
+        let n = -m * 200;
+        if (document.getElementByClassName(s).style.transform === "rotateX(30deg) translateY(50px) translateZ(" + n + "px)") {
+            document.getElementByClassName(s).style.transform = " rotateX(30deg) translateY(0px) translateZ(" + n + "px)";
+        } else {
+            document.getElementByClassName(s).style.transform = "rotateX(30deg) translateY(50px) translateZ(" + n + "px)";
+        }  
+    }
+</script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <title>NEW ITEM | SHEET MANAGMENT</title>
+    <style>
+        .container {
+            width: 70%;
+            margin: 2em auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #containera1{
+            display: none;
+        }
+        #containera2{
+            display: none;
+        }
+        #containera3{
+            display: none;
+        }
+        #containerb1{
+            display: none;
+        }
+        #containerb2{
+            display: none;
+        }
+        #containerb3{
+            display: none;
+        }
+        #containerc1{
+            display: none;
+        }
+        #containerc2{
+            display: none;
+        }
+        #containerc3{
+            display: none;
+        }
+        #containerd1{
+            display: none;
+        }
+        #containerd2{
+            display: none;
+        }
+        #containerd3{
+            display: none;
+        }
+
+        .data{
+            margin: 1em auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mar{
+            padding: 0em 0.5em;
+        }
+
+        header{
+            height: 10vh;
+        }
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        footer{
+            height: 10vh;
+        }
+
+        main{
+            min-height: calc(100vh - 20vh);
+        }
+
+        #alert{
+            display: none;
+        }
+    </style>
+    
+    
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Duplicate 2.0</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/station.ejs">Station</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/newitem.ejs">New Item</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0"action="/search" method="POST" autocomplete="off">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" id="query" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="alert alert-success" id="alert" role="alert">
+            Sucess: New Item added succesfully
+        </div>
+        <div class="container">
+            <!-- replace with your endoint URL -->
+            <h3 class="data">ADD DETAILS OF NEW ITEM HERE</h3>
+            <h6 class="data">Select where you want to enter data</h6>
+            <div class="conatiner" style="align-self: center;">
+                <div class="form-check form-check-inline mar" onclick="display('containera1')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioa1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadioa1" >A1</label>
+                </div>
+                <div class="form-check form-check-inline mar" onclick="display('containera2')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioa2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadioa2" >A2</label>
+                </div>
+                <div class="form-check form-check-inline mar" onclick="display('containera3')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioa3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineRadioa3">A3</label>
+                </div>
+                <br>
+                <div class="form-check form-check-inline mar" onclick="display('containerb1')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadiob1"
+                        value="option4">
+                    <label class="form-check-label" for="inlineRadiob1">B1</label>
+                </div>
+                <div class="form-check form-check-inline mar" onclick="display('containerb2')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadiob2"
+                        value="option5">
+                    <label class="form-check-label" for="inlineRadiob2">B2</label>
+                </div>
+                <div class="form-check form-check-inline mar" onclick="display('containerb3')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadiob3"
+                        value="option6">
+                    <label class="form-check-label" for="inlineRadiob3">B3</label>
+                </div>
+                <br>
+                <div class="form-check form-check-inline mar" onclick="display('containerc1')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioc1"
+                        value="option7">
+                    <label class="form-check-label" for="inlineRadioc1">C1</label>
+                </div>
+                <div class="form-check form-check-inline mar" onclick="display('containerc2')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioc2"
+                        value="option8">
+                    <label class="form-check-label" for="inlineRadioc2">C2</label>
+                </div>
+                <div class="form-check form-check-inline mar" onclick="display('containerc3')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioc3"
+                        value="option9">
+                    <label class="form-check-label" for="inlineRadioc3">C3</label>
+                </div>
+                <br>
+                <div class="form-check form-check-inline mar" onclick="display('containerd1')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadiod1"
+                        value="option10">
+                    <label class="form-check-label" for="inlineRadiod1">D1</label>
+                </div>
+                <div class="form-check form-check-inline mar" onclick="display('containerd2')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadiod2"
+                        value="option11">
+                    <label class="form-check-label" for="inlineRadiod2">D2</label>
+                </div>
+                <div class="form-check form-check-inline mar"  onclick="display('containerd3')">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadiod3"
+                        value="option12">
+                    <label class="form-check-label" for="inlineRadiod3">D3</label>
+                </div>
+            </div>
+            
+            <div id="containera1" >
+                <p class="data">Your Data will be added to  <b>&nbsp; A1 </b> </p>
+                <form action="/newitem.ejs/a1" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containera2">
+                <p class="data">Your Data will be added to  <b>&nbsp; A2 </b> </p>
+                <form action="/newitem.ejs/a2" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containera3" >
+                <p class="data">Your Data will be added to  <b>&nbsp; A3 </b> </p>
+                <form action="/newitem.ejs/a3" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerb1" >
+                <p class="data">Your Data will be added to  <b>&nbsp; B1 </b> </p>
+                <form action="/newitem.ejs/b1" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerb2" >
+                <p class="data">Your Data will be added to  <b>&nbsp; B2 </b> </p>
+                <form action="/newitem.ejs/b2" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerb3" >
+                <p class="data">Your Data will be added to  <b>&nbsp; B3 </b> </p>
+                <form action="/newitem.ejs/b3" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerc1" >
+                <p class="data">Your Data will be added to  <b>&nbsp; C1 </b> </p>
+                <form action="/newitem.ejs/c1" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerc2" >
+                <p class="data">Your Data will be added to  <b>&nbsp; C2 </b> </p>
+                <form action="/newitem.ejs/c2" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerc3" >
+                <p class="data">Your Data will be added to  <b>&nbsp; C3 </b> </p>
+                <form action="/newitem.ejs/c3" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerd1" >
+                <p class="data">Your Data will be added to  <b>&nbsp; D1 </b> </p>
+                <form action="/newitem.ejs/d1" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerd2" >
+                <p class="data">Your Data will be added to  <b>&nbsp; D2 </b> </p>
+                <form action="/newitem.ejs/d2" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+
+            <div id="containerd3" >
+                <p class="data">Your Data will be added to  <b>&nbsp; D3 </b> </p>
+                <form action="/newitem.ejs/d3" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white"><i class="fa fa-user"></i>&nbsp</span>
+                            </div>
+                            <input name="size" id="size" type="text" placeholder="size"
+                                class="form-control border-left-0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input name="gct" id="gct" type="text" placeholder="GCT"
+                                        class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                    <input name="ht" id="ht" type="text" placeholder="HT" class="form-control border-left-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary float-right" style="margin-bottom: 20px;" onclick="display_alert()" name="Contact">
+                        <i class="fa fa-paper-plane"></i>
+                        Send
+                    </button>
+                    
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+    
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="http://beast-adamantt.herokuapp.com/beastadamant"> BEAST ADAMANT</a>
+        </div>
+        <!-- Copyright -->
+    
+    </footer>
+</body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        function display_alert(){
+            document.getElementById('alert').style.display = 'Block'
+            setTimeout(() => {
+                document.getElementById('alert').style.display = 'none'
+            }, 1500);
+        }
+        function display(e){
+            const list = ['containera1','containera2','containera3','containerb1','containerb2','containerb3','containerc1','containerc2','containerc3','containerd1','containerd2','containerd3']
+            list.forEach(element => {
+                if(element==e){
+                    if(document.getElementById(element).style.display === 'block'){
+                        document.getElementById(element).style.display = 'none';
+                    }
+                    else{
+                        document.getElementById(element).style.display = 'block';
+                    }
+                }
+                else{
+                    document.getElementById(element).style.display ='none';
+                }
+            });
+        }
+    </script>
+</body>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap"); */
+
+        *, *::before, *::after {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Anton', sans-serif;
+            background-color: #eee;
+            color: #333;
+            min-height: 100vh;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+                    justify-content: center;
+            align-content: center;
+            -webkit-box-align: center;
+                    align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* .hidden {
+            position: fixed;
+            top: -10000px;
+            left: -10000px;
+            visibility: hidden;
+        } */
+
+        .container {
+            position: relative;
+            width: 280px;
+            height: 200px;
+            border-radius: 4px;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                    align-items: center;
+            margin: 1em;
+            -webkit-perspective: 1000px;
+                    perspective: 1000px;
+        }
+
+        .square {
+            width: 50em;
+            height: 10em;
+            -webkit-transform: rotateX(30deg);
+                    transform: rotateX(30deg);
+            position: absolute;
+        }
+
+        .square.A1 {
+            background-color: rgb(151, 180, 151);
+            -webkit-transform: rotateX(30deg) translateZ(0px) translateY(0px);
+                    transform: rotateX(30deg) translateZ(0px) translateY(0px);
+        }
+
+        .square.A2 {
+            background-color: green;
+            -webkit-transform: rotateX(30deg) translateZ(50px) translateY(0px);
+                    transform: rotateX(30deg) translateZ(50px) translateY(0px);
+        }
+
+        .square.A3 {
+            background-color: #D50000;
+            -webkit-transform: rotateX(30deg) translateZ(100px) translateY(0px);
+                    transform: rotateX(30deg) translateZ(100px) translateY(0px);
+        }
+
+        .square.A4 {
+            background-color: #304FFE;
+            -webkit-transform: rotateX(30deg) translateZ(150px) translateY(0px);
+                    transform: rotateX(30deg) translateZ(150px) translateY(0px);
+        }
+
+        .square.A5 {
+            background-color: #5f69a1;
+            -webkit-transform: rotateX(30deg) translateZ(200px) translateY(0px);
+                    transform: rotateX(30deg) translateZ(200px) translateY(0px);
+        }
+
+        /* #ts-flat:checked ~ .container {
+            -webkit-transform-style: flat;
+                    transform-style: flat;
+        }
+
+        #ts-flat:checked ~ .options > label.flat {
+            background-color: greenyellow;
+        } */
+
+        #ts-preserve:checked ~ .container {
+        -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+        }
+
+        #ts-preserve:checked ~ .options > label.preserve {
+            background-color: greenyellow;
+        }
+        .square p{
+            position: absolute;
+            bottom: 0px;
+            left: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="square A1" id="A1" onclick="transform_funcA1()"> <p> Hello World 1</p> </div>
+        <div class="square A2" id="A2" onclick="transform_funcA2()"> <p> Hello World 2</p> </div>
+        <div class="square A3" id="A3" onclick="transform_funcA3()"> <p> Hello World 3</p> </div>
+        <div class="square A4" id="A4" onclick="transform_funcA4()"> <p> Hello World 4</p> </div>
+        <div class="square A5" id="A5" onclick="transform_funcA5()"> <p> Hello World 5</p> </div>
+    </div>
+</body>
+
+<script>
+    function transform_funcA1() {
+        if (document.getElementById('A1').style.transform === "rotateX(30deg) translateZ(0px) translateY(50px)") {
+            document.getElementById('A1').style.transform = " rotateX(30deg) translateZ(0px) translateY(0px)";
+        } else {
+            document.getElementById('A1').style.transform = "rotateX(30deg) translateZ(0px) translateY(50px)";   
+        }
+    }
+
+    function transform_funcA2() {
+        if (document.getElementById('A2').style.transform === "rotateX(30deg) translateZ(50px) translateY(50px)") {
+            document.getElementById('A2').style.transform = " rotateX(30deg) translateZ(50px) translateY(0px)";
+        } else {
+            document.getElementById('A2').style.transform = "rotateX(30deg) translateZ(50px) translateY(50px)";   
+        }
+    }
+    function transform_funcA3() {
+        if (document.getElementById('A3').style.transform === "rotateX(30deg) translateZ(100px) translateY(50px)") {
+            document.getElementById('A3').style.transform = " rotateX(30deg) translateZ(100px) translateY(0px)";
+        } else {
+            document.getElementById('A3').style.transform = "rotateX(30deg) translateZ(100px) translateY(50px)";   
+        }
+    }
+    function transform_funcA4() {
+        if (document.getElementById('A4').style.transform === "rotateX(30deg) translateZ(150px) translateY(50px)") {
+            document.getElementById('A4').style.transform = " rotateX(30deg) translateZ(150px) translateY(0px)";
+        } else {
+            document.getElementById('A4').style.transform = "rotateX(30deg) translateZ(150px) translateY(50px)";   
+        }
+    }
+    function transform_funcA5() {
+        if (document.getElementById('A5').style.transform === "rotateX(30deg) translateZ(200px) translateY(50px)") {
+            document.getElementById('A5').style.transform = " rotateX(30deg) translateZ(200px) translateY(0px)";
+        } else {
+            document.getElementById('A5').style.transform = "rotateX(30deg) translateZ(200px) translateY(50px)";   
+        }
+    }
+</script>
+</html>
