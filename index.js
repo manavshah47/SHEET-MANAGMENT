@@ -558,117 +558,117 @@ app.get('/generatesheet/d3',async (req, res) => {
     });
 });
 
-app.post('/useda1',async (req,res) => {
-    await usera1.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    console.log("Object Deleted");
-    res.redirect("/a1.ejs")
-})
+// app.post('/useda1',async (req,res) => {
+//     await usera1.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     console.log("Object Deleted");
+//     res.redirect("/a1.ejs")
+// })
 
-app.post('/a2.ejs',async (req,res) => {
-    usera2.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/a2.ejs")
-})
+// app.post('/a2.ejs',async (req,res) => {
+//     usera2.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/a2.ejs")
+// })
 
-app.post('/a3.ejs',async (req,res) => {
-    usera3.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/a3.ejs")
-})
-
-
-app.post('/b1.ejs',async (req,res) => {
-    userb1.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/b1.ejs")
-})
-
-app.post('/b2.ejs',async (req,res) => {
-    userb2.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/b2.ejs")
-})
-
-app.post('/b3.ejs',async (req,res) => {
-    userb3.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/b3.ejs")
-})
+// app.post('/a3.ejs',async (req,res) => {
+//     usera3.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/a3.ejs")
+// })
 
 
-app.post('/c1.ejs',async (req,res) => {
-    userc1.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/c1.ejs")
-})
+// app.post('/b1.ejs',async (req,res) => {
+//     userb1.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/b1.ejs")
+// })
 
-app.post('/c2.ejs',async (req,res) => {
-    userc2.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/c2.ejs")
-})
+// app.post('/b2.ejs',async (req,res) => {
+//     userb2.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/b2.ejs")
+// })
 
-app.post('/c3.ejs',async (req,res) => {
-    userc3.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/c3.ejs")
-})
+// app.post('/b3.ejs',async (req,res) => {
+//     userb3.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/b3.ejs")
+// })
 
 
-app.post('/d1.ejs',async (req,res) => {
-    userd1.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/d1.ejs")
-})
+// app.post('/c1.ejs',async (req,res) => {
+//     userc1.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/c1.ejs")
+// })
 
-app.post('/d2.ejs',async (req,res) => {
-    userd2.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/d2.ejs")
-})
+// app.post('/c2.ejs',async (req,res) => {
+//     userc2.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/c2.ejs")
+// })
 
-app.post('/d3.ejs',async (req,res) => {
-    userd3.deleteOne({ size: req.body.size }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-    res.redirect("/d3.ejs")
-})
+// app.post('/c3.ejs',async (req,res) => {
+//     userc3.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/c3.ejs")
+// })
+
+
+// app.post('/d1.ejs',async (req,res) => {
+//     userd1.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/d1.ejs")
+// })
+
+// app.post('/d2.ejs',async (req,res) => {
+//     userd2.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/d2.ejs")
+// })
+
+// app.post('/d3.ejs',async (req,res) => {
+//     userd3.deleteOne({ size: req.body.size }, function(err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//     });
+//     res.redirect("/d3.ejs")
+// })
 
 app.post('/a1',async (req, res) => {
     const dest = req.body.example;
@@ -774,7 +774,7 @@ app.post('/a1',async (req, res) => {
             res.redirect("/a1.ejs")
         }
         else{
-            console.log("Error in selecting route");
+            console.log("Used");
         }
     } catch (error) {
         res.send(error);
@@ -784,6 +784,7 @@ app.post('/a1',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/a1.ejs")
 })
 
 app.post('/a2',async (req, res) => {
@@ -900,6 +901,7 @@ app.post('/a2',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/a2.ejs")
 })
 
 app.post('/a3',async (req, res) => {
@@ -1018,6 +1020,7 @@ app.post('/a3',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/a3.ejs")
 })
 
 
@@ -1138,6 +1141,7 @@ app.post('/b1',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/b1.ejs")
 })
 
 
@@ -1257,6 +1261,7 @@ app.post('/b2',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/b2.ejs")
 })
 
 
@@ -1374,6 +1379,7 @@ app.post('/b3',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/b3.ejs")
 })
 
 
@@ -1493,6 +1499,7 @@ app.post('/c1',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/c1.ejs")
 })
 
 
@@ -1613,6 +1620,7 @@ app.post('/c2',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/c2.ejs")
 })
 
 
@@ -1731,6 +1739,7 @@ app.post('/c3',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/c3.ejs")
 })
 
 
@@ -1848,6 +1857,7 @@ app.post('/d1',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/d1.ejs")
 })
 
 
@@ -1966,6 +1976,7 @@ app.post('/d2',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/d2.ejs")
 })
 
 
@@ -2084,6 +2095,7 @@ app.post('/d3',async (req, res) => {
             console.log(err);
         }
     });
+    res.redirect("/d3.ejs")
 })
 
 // app.post("/search", function(req, res) {  
