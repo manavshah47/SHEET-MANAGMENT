@@ -72,7 +72,6 @@
     }
 
     table {
-      /* width: 50%; */
       margin: 10px;
       padding: 5px;
       text-align: center;
@@ -95,29 +94,13 @@
       padding: 1em;
       text-align: center;
     }
-
-    /* header{
-      height: 10vh;
-    }
-
-    footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 10vh;
-    } */
-
-    /* main{
-      min-height: 80vh;
-    } */
   </style>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Duplicate 2.0</a>
+      <a class="navbar-brand" href="/">Company Name</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -133,7 +116,8 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0"action="/search" method="POST" autocomplete="off">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" id="query" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search..." name="query" id="query" aria-label="Search">
+          <input type="hidden" id="station" name="station" value="">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
@@ -145,7 +129,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> A1 </h5></p>
+            <p>A1</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/a1.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -156,7 +140,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> A2 </h5></p>
+            <p>A2</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/a2.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -167,7 +151,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> A3 </h5></p>
+            <p>A3</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/a3.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -183,7 +167,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> B1 </h5></p>
+            <p>B1</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/b1.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -194,7 +178,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> B2 </h5></p>
+            <p>B2</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/b2.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -205,7 +189,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> B3 </h5></p>
+            <p>B3</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/b3.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -219,7 +203,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> C1 </h5></p>
+            <p>C1</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/c1.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -230,7 +214,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> C2 </h5></p>
+            <p>C2</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/c2.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -241,7 +225,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> C3 </h5></p>
+            <p>C3</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/c3.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -258,7 +242,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> D1 </h5></p>
+            <p>D1</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/d1.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -269,7 +253,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> D2 </h5></p>
+            <p>D2</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/d2.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
@@ -280,7 +264,7 @@
       <div class="container">
         <div class="card center">
           <div class="front  center">
-            <p><h5> D3 </h5></p>
+            <p>D3</p>
           </div>
           <div class="back center">
             <p class="text-center"><a href="/d3.ejs" style="text-decoration: none; color: #343a40;"> Click here to see plates of this junction </a></p>
