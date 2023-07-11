@@ -20,5 +20,5 @@ const sheetSchema = new mongoose.Schema({
     },
 })
 
-const user = mongoose.model('sheets', sheetSchema)
+const user = mongoose.model('sheet', sheetSchema)
 module.exports = user;

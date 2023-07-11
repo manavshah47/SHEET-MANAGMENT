@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const fs = require('fs');
 var XLSX = require("xlsx");
+require("dotenv").config()
 
 const PORT_NUMBER = process.env.PORT_NUMBER;
 
@@ -67,7 +68,7 @@ app.get('/diffrent.ejs', (req, res) => {
 
 
 app.get('/a1.ejs', (req, res) => {
-    user.find({}, function (err, data) {
+    user.find({}, function (err, data) {  
         if (err) {
             console.log(err);
         } else {
@@ -194,11 +195,9 @@ app.post('/generatesheet',async (req, res) => {
         } else {
             var temp = JSON.stringify(data);
             temp = JSON.parse(temp);
-            console.log(temp);
             var ws = XLSX.utils.json_to_sheet(temp);
             var now = new Date();
             var down = __dirname + '/'+st+'-'+ now.getDate() + "-"+ now.getMonth() + "-" + now.getFullYear() +'.xlsx'
-            console.log(down);
             XLSX.utils.book_append_sheet(wb,ws,"sheet 1");
             XLSX.writeFile(wb,down);
             res.download(down);

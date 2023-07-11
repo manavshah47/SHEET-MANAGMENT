@@ -208,21 +208,21 @@
 </body>
 <script>
     
-    function allowDrop(ev) {
-        ev.preventDefault();
+    function allowDrop(e) {
+        e.preventDefault();
     }
 
-    function drag(ev) {
-        ev.dataTransfer.setData("table", ev.target.id);
+    function drag(e) {
+        e.dataTransfer.setData("table", ev.target.id);
     }
 
-    function drop(ev) {
-        ev.preventDefault();
-        var src = document.getElementById(ev.dataTransfer.getData("table"));
+    function drop(e) {
+        e.preventDefault();
+        var src = document.getElementById(e.dataTransfer.getData("table"));
         var srcParent = src.parentNode;
-        var tgt = ev.currentTarget.firstElementChild;
+        var tgt = e.currentTarget.firstElementChild;
 
-        ev.currentTarget.replaceChild(src, tgt);
+        e.currentTarget.replaceChild(src, tgt);
         srcParent.appendChild(tgt);
     }
 
